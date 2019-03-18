@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+
+div.pageBtn a {
+border: 1px grey solid;
+border-radius: 3px;
+padding: 5px 10px 5px 10px;
+font-size: 17px;
+text-decoration: none;
+color: gray;
+background: antiquewhite;
+}
