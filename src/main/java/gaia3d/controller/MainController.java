@@ -10,6 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/")
 public class MainController {
 	
+	@RequestMapping(value = "start")
+	public String start() {
+		return "/start";
+	}
+	
 	@RequestMapping(value = "main")
 	public String main() {
 		return "/main";
