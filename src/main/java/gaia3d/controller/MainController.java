@@ -34,5 +34,10 @@ public class MainController {
 	public String tools() {
 		return "/tools";
 	}
+	
+	@RequestMapping(value ="location")
+	public String myPosition() {
+		return "/my-location";
+	}
 
 }
