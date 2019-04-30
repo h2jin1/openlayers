@@ -13,17 +13,29 @@ var osm_layer = new ol.layer.Tile({
 });
 
 var korea_5186 = ol.proj.transform([126.977234, 37.490115], 'EPSG:4326', 'EPSG:3857')
+
+var interaction = new ol.interaction.DragRotateAndZoom();
+var control = new ol.control.FullScreen();
+var center = ol.proj.transform([126.977234, 37.490115], 'EPSG:4326', 'EPSG:3857');
+
+var overlay = new ol.Overlay ({
+	position: center,
+	element: document.getElementById('overlay')
+});
+
 var view = new ol.View({
-  center: korea_5186,
-  zoom: 10
+	center: center,
+	zoom: 10
 });
 
 var map = new ol.Map({
-  target: 'map'
+  target: 'map',
+  layers: [osm_layer],
+  interactions: [interaction],
+  controls: [control],
+  overlays: [overlay],
+  view: view
 });
-
-map.addLayer(osm_layer);
-map.setView(view);
 
 
 
