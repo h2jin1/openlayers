@@ -34,6 +34,11 @@ var overlay_pin = new ol.Overlay ({
 	element: document.getElementById('overlay_pin')
 });
 
+//var overlay_coord = new ol.Overlay ({
+//    position: 'bottom-center',
+//	element: document.getElementById('overlay_coord')
+//});
+
 map.on('click', function(event) {
 	var coord = event.coordinate;
     var degrees = ol.proj.transform(coord, 'EPSG:3857', 'EPSG:4326');
@@ -44,5 +49,13 @@ map.on('click', function(event) {
 	map.addOverlay(overlay_pin);
 });
 
-
+map.on('pointermove', function(event) {
+	var coord = event.coordinate;
+    var degrees = ol.proj.transform(coord, 'EPSG:3857', 'EPSG:4326');
+    var hdms = ol.coordinate.toStringHDMS(degrees);
+    var element = document.getElementById('overlay_coord');
+    element.innerHTML = hdms;
+//    overlay_coord.setPosition(coord);
+//	map.addOverlay(overlay_coord);
+});
 

@@ -17,6 +17,11 @@ height: 20px;
 }
 
 #overlay_coord {
+position: relative;
+width: 157px;
+z-index: 5;
+top: -30px;
+left: 1260px;
 background-color: white;
 font-size: 12px;
 padding: 2px 5px 2px 5px;
