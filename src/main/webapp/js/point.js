@@ -18,23 +18,30 @@ var interaction = new ol.interaction.DragRotateAndZoom();
 var control = new ol.control.FullScreen();
 var center = ol.proj.transform([126.977234, 37.490115], 'EPSG:4326', 'EPSG:3857');
 
-var overlay = new ol.Overlay ({
-	position: center,
-	element: document.getElementById('overlay')
-});
-
 var view = new ol.View({
 	center: center,
 	zoom: 10
 });
 
 var map = new ol.Map({
-  target: 'map',
-  layers: [osm_layer],
-  interactions: [interaction],
-  controls: [control],
-  overlays: [overlay],
-  view: view
+	target: 'map',
+	layers: [osm_layer],
+	view: view
+});
+
+var overlay_pin = new ol.Overlay ({
+    position: 'bottom-center',
+	element: document.getElementById('overlay_pin')
+});
+
+map.on('click', function(event) {
+	var coord = event.coordinate;
+    var degrees = ol.proj.transform(coord, 'EPSG:3857', 'EPSG:4326');
+    var hdms = ol.coordinate.toStringHDMS(degrees);
+    var element = overlay_pin.getElement();
+    element.innerHTML = hdms;
+    overlay_pin.setPosition(coord);
+	map.addOverlay(overlay_pin);
 });
 
 
