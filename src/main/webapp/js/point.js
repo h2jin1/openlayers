@@ -24,7 +24,7 @@ var view = new ol.View({
 });
 
 var map = new ol.Map({
-	target: 'map',
+	target: 'map_point',
 	layers: [osm_layer],
 	view: view
 });

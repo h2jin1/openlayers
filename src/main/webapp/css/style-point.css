@@ -6,7 +6,7 @@ margin: 0;
 width: 100%;
 height: 100%;
 }
-#map {
+#map_point {
 width: 100%;
 height: 100%;
 }
@@ -18,10 +18,13 @@ height: 20px;
 
 #overlay_coord {
 position: relative;
-width: 157px;
+float: right;
+width: 170px;
+height: 15px;
+text-align: center;
 z-index: 5;
 top: -30px;
-left: 1260px;
+right: 30px;
 background-color: white;
 font-size: 12px;
 padding: 2px 5px 2px 5px;
